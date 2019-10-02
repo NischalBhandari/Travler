@@ -23,7 +23,7 @@
 	display:block;
 	text-decoration:none;
 	display:block;
-	color:white;
+	color:grey;
 	/*background-color:whitesmoke;*/
 
 }
@@ -388,7 +388,7 @@
 	top:0%;
 }
 .our-description{
-	padding-top:15%;
+	padding-top:5%;
 }
 .map-tagline{
 	font-size:20px;
@@ -406,6 +406,7 @@
 .footer-wrapper{
 	background-color:#373737;
 	border-top:8px solid purple;
+	margin-top:8px;
 }
 .footer-left{
 	width:48.9361%;
@@ -463,6 +464,40 @@
 	padding-bottom:236px;
 
 }
+.our-features{
+	margin:0%;
+
+}
+.lefting{
+	float:left;
+	width:48.9361%;
+}
+.righting{
+	float:right;
+	width:48.9361%;
+}
+.last-our-features{
+	margin-top:16px;
+	width:100%;
+}
+.our-features-inside{
+		padding-left:50px;
+	padding-right:50px;
+	padding-top:70px;
+	padding-bottom:90px;
+}
+.our-features-inside span{
+	margin-bottom:40px;
+}
+
+.our-team-wrapper-heading{
+	font-size:20px;
+	padding-bottom:20px;
+	background-image:url('../images/humble-team.png');
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
     /* 
 
     

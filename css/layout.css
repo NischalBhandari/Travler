@@ -60,6 +60,7 @@ for tablet
 		clear:both;
 }
 
+
 .header-wrapper{
     position:relative;
 	background-color:whitesmoke;
@@ -211,21 +212,21 @@ for tablet
 	width:100%;
 }
 
+.screen{
+	position:relative;
+	}
 .screen img {
-	position:absolute;
-	width:80%;
-	top:20px;
-	left:10%;
+	
 }
 
 .team-wrapper{
-	position:relative;
+/*	position:absolute;*/
 	float:left;
 	top:100%;
 	left:0%;
 	width:100%;
 	float:left;
-	display:table-cell;
+	margin-top:0px;
 }
 .our-team-wrapper-heading{
 	background-color:transparent;
@@ -264,4 +265,7 @@ background-color:#373737;
 	float:right;
 	width:50%;
 
+}
+.footer-bottom-wrapper-inside{
+	width:60%;
 }

@@ -3,11 +3,21 @@
 	min-width: 100%;
 	background-color:whitesmoke;
 }
-[class*="col-"]{
+/*[class*="col-"]{
 	float:left;
 }
 [class*='col-']{
 	width:100%;
+}*/
+.col-0{
+	width:100%;
+	float:left;
+}
+.col-s-12{
+	width:none;
+}
+.col-s-4{
+	width:none;
 }
 
 .about-wrapper{

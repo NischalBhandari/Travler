@@ -4,6 +4,7 @@
 
 
 	function carousel(slideElem,parentElem){
+
 		this.index=0;
 		this.totalWidth=0;
 		this.individualWidth=0;
@@ -12,6 +13,8 @@
 		var that=this;
 		this.parentElem=parentElem;
 		this.slideElem = slideElem;
+		this.parentElem=document.getElementById('team-wrapper');
+		this.slideElem = document.getElementsByClassName("our-team-wrapper-body");
 		for(var i=0;i<this.slideElem.length;i++){
 			this.totalWidth+=this.slideElem[i].clientWidth;
 			console.log(this.slideElem[i].clientWidth);
@@ -34,9 +37,9 @@
 			that.index=0;
 			that.individualWidth=0;
 			that.count=0;
-/*
+
 		that.parentElem=document.getElementById('team-wrapper');
-		that.slideElem = document.getElementsByClassName("our-team-wrapper-body");*/
+		that.slideElem = document.getElementsByClassName("our-team-wrapper-body");
 		console.log("this. is the slide element",that.slideElem);
 		that.totalWidth=0;
 			for(var i=0;i<that.slideElem.length;i++){

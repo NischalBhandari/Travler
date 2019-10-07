@@ -96,23 +96,24 @@
 		}
 
 		this.changeRight=function(){
-			var stopThis=0;
-			var x=setInterval(function(){
-			if(stopThis<(that.individualWidth)){
-
-			that.index+=5;
-			stopThis+=5;
-/*			var positiveIndex=that.index*-1;*/
-
-			if((that.index)>=-(that.totalWidth-that.individualWidth)){
-/*				console.log(that.index,that.totalWidth,stopThis);*/
-			that.parentElem.style.marginLeft=that.index+"px";
-		}
-		
-			}},10);
-			that.count--;
-			that.count=that.count%that.slideElem.length;
+		that.index=that.totalWidth-that.index;
+		that.index-=that.individualWidth;
+		console.log(that.index,that.individualWidth);
+		that.index=-that.index;
+		that.index=that.index%that.totalWidth;
+		console.log(that.index);
+		that.parentElem.style.marginLeft=that.index+"px";
+		if(that.count<=0){
+			
+			that.count=that.slideElem.length-1;
+			console.log("count is smaller than zero",that.count);
 			return that.count;
+		}
+		else{
+			that.count=that.count-1;
+			console.log(" count is bigger than zero",that.count);
+			return that.count;
+}
 		}
 
 	}
@@ -160,7 +161,10 @@
 				console.log(that.myCarousel.isRotating);
 				if(!that.myCarousel.isRotating){
 				that.count=that.myCarousel.changeRight();
-				that.indicatorArray[that.count].changeColor();
+				console.log(that.count);
+
+					that.indicatorArray[that.count].changeColor();
+
 			}
 			}
 

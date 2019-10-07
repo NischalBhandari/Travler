@@ -61,8 +61,8 @@
 			var x=setInterval(function(){
 			if(stopThis<(that.individualWidth)){
 
-			that.index-=10;
-			stopThis+=10;
+			that.index-=1;
+			stopThis+=1;
 			that.index=that.index%(that.totalWidth);
 			that.parentElem.style.marginLeft=that.index+"px";
 		}

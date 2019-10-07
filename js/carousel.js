@@ -8,6 +8,7 @@
 		this.totalWidth=0;
 		this.individualWidth=0;
 		this.count=0;
+		this.isRotating=false;
 		var that=this;
 		this.parentElem=parentElem;
 		this.slideElem = slideElem;
@@ -60,14 +61,11 @@
 
 		this.changeSlide=function(){
 			var stopThis=0;
-			console.log(stopThis);
-			console.log(that.index);
-			console.log(that.totalWidth);
-			console.log(that.individualWidth);
+			that.isRotating=true;
+			console.log(that.isRotating);
 
 			var x=setInterval(function(){
 			if(stopThis>=-(that.individualWidth)){
-				console.log(stopThis,that.index);
 
 			that.index-=5;
 			stopThis-=5;
@@ -81,11 +79,18 @@
 				console.log("made index zero");
 				clearInterval(x);
 
+
 			}
+		}
+		else{
 		}
 			},10);
 			that.count++;
 			that.count=that.count%that.slideElem.length;
+			setTimeout(function(){
+				that.isRotating=false;
+				console.log(that.isRotating);
+			},1500);
 			return that.count;
 
 		}
@@ -95,18 +100,17 @@
 			var x=setInterval(function(){
 			if(stopThis<(that.individualWidth)){
 
-			that.index-=5;
+			that.index+=5;
 			stopThis+=5;
 /*			var positiveIndex=that.index*-1;*/
-			that.index=that.index%(that.totalWidth);
+
+			if((that.index)>=-(that.totalWidth-that.individualWidth)){
+/*				console.log(that.index,that.totalWidth,stopThis);*/
 			that.parentElem.style.marginLeft=that.index+"px";
 		}
 		
-			},10);
-			setTimeout(function(){
-				clearInterval(x);
-			},5000);
-			that.count++;
+			}},10);
+			that.count--;
 			that.count=that.count%that.slideElem.length;
 			return that.count;
 		}
@@ -118,7 +122,9 @@
 	function teamMainWrapper(greatGrandElem){
 		this.greatGrandElem=greatGrandElem;
 		this.indicatorArray=[];
+		
 		var that=this;
+		this.flag=true;
 		this.count=0;
 		this.slideElem = document.querySelectorAll(".our-team-wrapper-body");
 		this.parentElem=document.getElementById('team-wrapper');
@@ -138,8 +144,10 @@
 			this.leftElement.innerHTML="<";
 			this.leftElement.style.padding="20px";
 			this.leftElement.onclick=function(){
+				if(!that.myCarousel.isRotating){
 				that.count=that.myCarousel.changeSlide();
 				that.indicatorArray[that.count].changeColor();
+			}
 			}
 
 			this.rightElement.style.position="absolute";
@@ -149,8 +157,11 @@
 			this.rightElement.style.padding="20px";
 
 			this.rightElement.onclick=function(){
+				console.log(that.myCarousel.isRotating);
+				if(!that.myCarousel.isRotating){
 				that.count=that.myCarousel.changeRight();
 				that.indicatorArray[that.count].changeColor();
+			}
 			}
 
 			this.indicator.style.position="absolute";
@@ -164,14 +175,12 @@
 
 
 			setInterval(function(){
+
+
 				that.count=that.myCarousel.changeSlide();
 				that.indicatorArray[that.count].changeColor();
 
-			},5000);
 
-			setTimeout(function(){
-				that.leftElement.style.display="block";
-				that.rightElement.style.display="block";
 			},5000);
 
 			

@@ -69,14 +69,11 @@
 
 			that.index-=5;
 			stopThis-=5;
-			/*that.index=that.index%(that.totalWidth);*/
 			if((that.index)>=-(that.totalWidth-that.individualWidth)){
-/*				console.log(that.index,that.totalWidth,stopThis);*/
 			that.parentElem.style.marginLeft=that.index+"px";
 			}
 			else{
 				that.index=that.individualWidth;
-				console.log("made index zero");
 				clearInterval(x);
 
 
@@ -161,8 +158,6 @@
 				console.log(that.myCarousel.isRotating);
 				if(!that.myCarousel.isRotating){
 				that.count=that.myCarousel.changeRight();
-				console.log(that.count);
-
 					that.indicatorArray[that.count].changeColor();
 
 			}

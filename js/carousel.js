@@ -14,6 +14,8 @@
 		this.slideElem = slideElem;
 		for(var i=0;i<this.slideElem.length;i++){
 			this.totalWidth+=this.slideElem[i].clientWidth;
+			console.log(this.slideElem[i].clientWidth);
+			console.log(this.totalWidth);
 		}
 		console.log("total width is ", this.totalWidth);
 		this.parentElem.style.width=this.slideElem.length*100+"%";

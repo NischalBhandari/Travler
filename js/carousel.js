@@ -71,6 +71,7 @@
 			stopThis-=5;
 			if((that.index)>=-(that.totalWidth-that.individualWidth)){
 			that.parentElem.style.marginLeft=that.index+"px";
+			console.log(that.index.that.totalWidth,that.individualWidth);
 			}
 			else{
 				that.index=that.individualWidth;
@@ -87,7 +88,7 @@
 			setTimeout(function(){
 				that.isRotating=false;
 				console.log(that.isRotating);
-			},1500);
+			},5000);
 			return that.count;
 
 		}

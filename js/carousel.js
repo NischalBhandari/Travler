@@ -124,7 +124,7 @@
 		var that=this;
 		this.flag=true;
 		this.count=0;
-		this.slideElem = document.querySelectorAll(".our-team-wrapper-body");
+		this.slideElem = document.getElementsByClassName("our-team-wrapper-body");
 		this.parentElem=document.getElementById('team-wrapper');
 		this.myCarousel=new carousel(this.slideElem,this.parentElem).init();
 

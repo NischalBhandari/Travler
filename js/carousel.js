@@ -13,7 +13,6 @@
 		this.slideElem = slideElem;
 		for(var i=0;i<this.slideElem.length;i++){
 			this.totalWidth+=this.slideElem[i].clientWidth;
-			this.individualWidth=this.slideElem[i].clientWidth;
 		}
 		console.log("total width is ", this.totalWidth);
 		this.parentElem.style.width=this.slideElem.length*100+"%";
@@ -24,19 +23,21 @@
 		}
 	
 
-		window.onresize=function(){
+	
+	window.onresize=function(){
+			console.log('resized');
 			dropDownMenu();
 			console.log("resized");
 			that.index=0;
-			that.totalWidth=0;
-
+			that.individualWidth=0;
+			that.count=0;
+/*
 		that.parentElem=document.getElementById('team-wrapper');
-		that.slideElem = document.getElementsByClassName("our-team-wrapper-body");
+		that.slideElem = document.getElementsByClassName("our-team-wrapper-body");*/
 		console.log("this. is the slide element",that.slideElem);
 		that.totalWidth=0;
 			for(var i=0;i<that.slideElem.length;i++){
 			that.totalWidth+=that.slideElem[i].clientWidth;
-			that.individualWidth=that.slideElem[i].clientWidth;
 		}
 		console.log("total width is ", that.totalWidth);
 		that.parentElem.style.width=that.slideElem.length*100+"%";
@@ -50,6 +51,7 @@
 
 		this.init=function(){
 			console.log(this);
+			
 			return this;
 		}
 
@@ -58,18 +60,30 @@
 
 		this.changeSlide=function(){
 			var stopThis=0;
-			var x=setInterval(function(){
-			if(stopThis<(that.individualWidth)){
+			console.log(stopThis);
+			console.log(that.index);
+			console.log(that.totalWidth);
+			console.log(that.individualWidth);
 
-			that.index-=1;
-			stopThis+=1;
-			that.index=that.index%(that.totalWidth);
+			var x=setInterval(function(){
+			if(stopThis>=-(that.individualWidth)){
+				console.log(stopThis,that.index);
+
+			that.index-=5;
+			stopThis-=5;
+			/*that.index=that.index%(that.totalWidth);*/
+			if((that.index)>=-(that.totalWidth-that.individualWidth)){
+/*				console.log(that.index,that.totalWidth,stopThis);*/
 			that.parentElem.style.marginLeft=that.index+"px";
+			}
+			else{
+				that.index=that.individualWidth;
+				console.log("made index zero");
+				clearInterval(x);
+
+			}
 		}
 			},10);
-			setTimeout(function(){
-				clearInterval(x);
-			},5000);
 			that.count++;
 			that.count=that.count%that.slideElem.length;
 			return that.count;
@@ -81,8 +95,8 @@
 			var x=setInterval(function(){
 			if(stopThis<(that.individualWidth)){
 
-			that.index-=10;
-			stopThis+=10;
+			that.index-=5;
+			stopThis+=5;
 /*			var positiveIndex=that.index*-1;*/
 			that.index=that.index%(that.totalWidth);
 			that.parentElem.style.marginLeft=that.index+"px";
@@ -108,7 +122,8 @@
 		this.count=0;
 		this.slideElem = document.querySelectorAll(".our-team-wrapper-body");
 		this.parentElem=document.getElementById('team-wrapper');
-		this.myCarousel=new carousel(this.slideElem,this.parentElem);
+		this.myCarousel=new carousel(this.slideElem,this.parentElem).init();
+
 		this.init=function(){
 			this.leftElement=document.createElement('button');
 			this.rightElement=document.createElement('button');
@@ -154,6 +169,11 @@
 
 			},5000);
 
+			setTimeout(function(){
+				that.leftElement.style.display="block";
+				that.rightElement.style.display="block";
+			},5000);
+
 			
 
 		}
@@ -166,8 +186,9 @@
 		var that=this;
 		this.init=function(){
 				this.indicator=document.createElement('button');
-				this.indicator.style.width="20px";
-				this.indicator.style.height="20px";
+				this.indicator.style.width="10px";
+				this.indicator.style.height="10px";
+				this.indicator.style.marginRight="7px";
 				this.indicator.style.borderRadius="50%";
 				this.indicator.style.float="left";
 				this.parentElem.appendChild(this.indicator);
@@ -175,10 +196,10 @@
 		}
 		this.changeColor=function(){
 			for(var i=0;i<this.allButtons.length;i++){
-				this.allButtons[i].style.backgroundColor="grey";
+				this.allButtons[i].style.backgroundColor="#f4f4f4";
 			}
 
-			this.indicator.style.backgroundColor="green";
+			this.indicator.style.backgroundColor="#6106a6";
 		}
 
 	}
@@ -193,12 +214,12 @@
 			that.showMenu?that.menu.style.display="block":that.menu.style.display="none";
 			that.showMenu=!that.showMenu;
 		}
-		window.onresize=function(){
+/*		window.onresize=function(){
 			if(screen.width>998){
 				that.showMenu=true;
 				that.showMenu?that.menu.style.display="block":that.menu.style.display="none";
 			}
-		}
+		}*/
 
 	}
 

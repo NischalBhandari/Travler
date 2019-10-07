@@ -236,6 +236,7 @@
 }
 .screen-tagline{
 	display:block;
+    top:15%;
 }
   .col-0{ width:none; }
   .col-s-4 {width: 33.33%;}
@@ -599,6 +600,9 @@
 }
 .mtop-50{
     margin-top:-50px;
+}
+.body-middle-description-wrapper{
+    background-position:20px;
 }
 }
 

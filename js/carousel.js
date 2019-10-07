@@ -62,7 +62,6 @@
 		this.changeSlide=function(){
 			var stopThis=0;
 			that.isRotating=true;
-			console.log(that.isRotating);
 
 			var x=setInterval(function(){
 			if(stopThis>=-(that.individualWidth)){
@@ -71,7 +70,7 @@
 			stopThis-=5;
 			if((that.index)>=-(that.totalWidth-that.individualWidth)){
 			that.parentElem.style.marginLeft=that.index+"px";
-			console.log(that.index.that.totalWidth,that.individualWidth);
+			console.log(that.index,that.totalWidth,that.individualWidth);
 			}
 			else{
 				that.index=that.individualWidth;

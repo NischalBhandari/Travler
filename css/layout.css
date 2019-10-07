@@ -187,11 +187,16 @@ for tablet
 .row img{
 	width:100%;
 }
+.scaling-big{
+	width:100%;
+	max-width: 100%;
+}
 
 .map-tagline{
 	padding-top:7px;
-	font-size:10px;
-	font-weight:bold;
+	font-size:25px;
+	font-weight: 200;
+	letter-spacing: 4px;
 	color:White;
 	margin:0 auto;
 	text-align: center;
@@ -206,8 +211,32 @@ for tablet
 }
 .body-middle-description{
 	position:relative;
+	overflow: hidden;
 
 }
+.body-wrapper{
+	background-image:url('../images/body-black.png');
+	background-repeat: no-repeat;
+	background-position: 50% 20%;
+	background-size:100% 1000px;
+}
+.team-main-wrapper{
+
+	padding-bottom:50px;
+	
+}
+.body-middle-description-wrapper{
+	background-image:url('../images/screen.png');
+	background-repeat: no-repeat;
+	background-size:100% ;
+	background-position: : fixed;
+	margin-top:54px;
+
+}
+.body-middle-description-wrapper img{
+
+}
+
 .backdrop img{
 	width:100%;
 }
@@ -216,7 +245,11 @@ for tablet
 	position:relative;
 	}
 .screen img {
+	opacity:0;
 	
+}
+.backdrop img{
+	opacity:0;
 }
 
 .team-wrapper{
@@ -224,9 +257,9 @@ for tablet
 	float:left;
 	top:100%;
 	left:0%;
-	width:100%;
 	float:left;
 	margin-top:0px;
+
 }
 .our-team-wrapper-heading{
 	background-color:transparent;
@@ -267,5 +300,5 @@ background-color:#373737;
 
 }
 .footer-bottom-wrapper-inside{
-	width:60%;
+	width:100%;
 }

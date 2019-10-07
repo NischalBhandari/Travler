@@ -4,5 +4,8 @@
 	box-sizing:border-box;
 }
 body{
-	background-color:whitesmoke;
+/*	background-image:url('../images/design.png');
+	opacity:0.5;
+	background-repeat: no-repeat;
+	background-position: 50%;*/
 }
